@@ -1,18 +1,23 @@
-import { setLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+/**
+* Product Details Page Script
+* Initializes single product view based on URL product parameter
+*/
+import { getParam, loadHeaderFooter } from './utils.mjs';
+import ProductData from './ProductData.js';
+import ProductDetails from './ProductDetails.mjs';
 
-const dataSource = new ProductData("tents");
+// Extract product ID from URL parameters
+const productId = getParam('product');
 
-function addProductToCart(product) {
-  setLocalStorage("so-cart", product);
-}
-// add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
-}
+// Initialize data source for tents category
+const dataSource = new ProductData('tents');
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+// Create product details instance with the specified product ID
+const product = new ProductDetails(productId, dataSource);
+
+// Load shared header and footer components
+loadHeaderFooter();
+
+// Initialize product details view
+product.init();
+

@@ -1,0 +1,10 @@
+{
+  "Count": 64,
+  "Page": 1,
+  "PerPage": 24,
+  "NextPageUrl": "/api/1.0/products/s~hammocks/?page=2",
+  "LastPageUrl": "/api/1.0/products/s~hammocks/?page=3",
+  "RefinementsUrl": "/api/1.0/refinements/search~hammocks/",
+  "Title": "Search for \"hammocks\" ",
+  "Result": []
+}
